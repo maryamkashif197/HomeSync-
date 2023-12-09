@@ -10,7 +10,7 @@
                           <div class="row">
                               <div class="col">
                                   <center>
-                                      <img width="150px" src="imgs/login.png"/>
+                                      <img width="150" src="imgs/login.png"/>
                                   </center>
                               </div>
                           </div>
@@ -28,16 +28,16 @@
 
                                 <label>Email yabn(t)y</label>
                                 <div class="form-group">
-                                    <asp:TextBox class="form-control" ID="TextBox1" runat="server" placeholder="email el hacker"></asp:TextBox>
+                                    <asp:TextBox class="form-control" ID="username" runat="server" placeholder="email el hacker"></asp:TextBox>
                                 </div>
 
                                 <label>Password</label>
                                 <div class="form-group">
-                                    <asp:TextBox class="form-control" ID="TextBox2" runat="server" placeholder="passwo3rd" TextMode="Password"></asp:TextBox>
+                                    <asp:TextBox class="form-control" ID="password" runat="server" placeholder="passwo3rd" TextMode="Password"></asp:TextBox>
                                 </div>
                                   <br />
                                 <div class="form-group d-md-grid gap-2">
-                                    <asp:Button ID="Button1" class="btn btn-success" runat="server" Text="Login" />
+                                    <asp:Button ID="Button1" class="btn btn-success" runat="server" Text="Login" OnClick="Button1_Click" />
                                 </div>
                                   <br />
                                 <div class="form-group d-grid">

@@ -55,6 +55,7 @@
                              <div class="form-group d-grid gap-2">
                                  <asp:Button ID="Button1" class="btn btn-success" runat="server" Text="Register" OnClick="UserRegister" />
                              </div>
+
                            </div>
                        </div>
                    </div>
