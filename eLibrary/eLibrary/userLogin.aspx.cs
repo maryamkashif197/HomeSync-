@@ -42,11 +42,10 @@ namespace eLibrary
 
             if ((bool)success.Value)
             {
-                Response.Write("welcome ");
                 SqlConnection con = new SqlConnection(connStr);
                 
                 con.Open();
-
+                // get the type and store it in session 'Admin' or 'Guest'
                 SqlCommand getTypeCommand = new SqlCommand("SELECT * FROM Users WHERE password = '" + usrpassword.Trim() + "' AND email = '" + LoginEmail.Trim() + "'", con);
                 SqlDataReader dr = getTypeCommand.ExecuteReader();
 
@@ -55,13 +54,14 @@ namespace eLibrary
                    while (dr.Read())
                      {
                         Session["type"] = dr.GetValue(7).ToString();
-                        Response.Write(Session["type"]);
                      }
                 }
                 else
                 {
                     Response.Write("<script>alert('invalid query');</script>");
                 }
+
+                Response.Redirect("homepage.aspx");
                 
             }
             else
