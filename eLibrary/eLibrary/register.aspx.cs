@@ -44,8 +44,7 @@ namespace eLibrary
 
                 cmd.ExecuteNonQuery();
                 con.Close();
-
-                Response.Write("<script>alert('User registered successfully');</script>");
+                Response.Write("thanks for register, your id is: "+outputParameter.Value+"");
             }
             catch (Exception ex)
             {
