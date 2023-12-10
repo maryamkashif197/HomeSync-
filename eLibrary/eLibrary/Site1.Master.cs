@@ -17,13 +17,31 @@ namespace eLibrary
                 {
                     LinkButton1.Visible = false; // login
                     LinkButton2.Visible = false;// sign up
+                    navbarDropdownTasks.Visible = true;//tasks downmenu
                     LinkButton3.Visible = true; //sign out
+                    LinkButton7.Visible = true; // view Task
+                    LinkButton8.Visible = true; //finish task
+                    if (Session["type"].ToString() == "Admin")
+                    {
+                        navbarDropdownTasks.Visible = true;
+                        LinkButton4.Visible = true;//add task
+                        LinkButton5.Visible = true;//add reminder
+                        LinkButton6.Visible = true;//update deadline
+
+                    }
                 }
                 else
                 {
                     LinkButton1.Visible = true; // login
                     LinkButton2.Visible = true;// sign up
                     LinkButton3.Visible = false; //sign out
+                    LinkButton4.Visible=false; //add task
+                    LinkButton5.Visible=false; //add reminder
+                    LinkButton6.Visible=false;//update deadline
+                    LinkButton7.Visible=false;
+                    LinkButton8.Visible=false;//finish task
+                    navbarDropdownTasks.Visible = false; // tasks downmenu
+
                 }
             }
             catch (Exception ex){
@@ -44,7 +62,26 @@ namespace eLibrary
             Session["type"] = null;
             Response.Redirect("homepage.aspx");
         }
-        
+        protected void LinkButton4_Click(object sender, EventArgs e) //add task
+        {
+            Response.Redirect("addTask.aspx");
+        }
+        protected void LinkButton5_Click(object sender, EventArgs e) //add task
+        {
+            Response.Redirect("addReminder.aspx");
+        }
+        protected void LinkButton6_Click(object sender, EventArgs e) //add task
+        {
+            Response.Redirect("updateDeadline.aspx");
+        }
+        protected void LinkButton7_Click(object sender, EventArgs e) //add task
+        {
+            Response.Redirect("viewTask.aspx");
+        }
 
+        protected void LinkButton8_Click(object sender, EventArgs e) //add task
+        {
+            Response.Redirect("finishTasks.aspx");
+        }
     }
 }

@@ -56,8 +56,13 @@ namespace eLibrary
                         Session["type"] = dr.GetValue(7).ToString();
                         if (Session["type"].ToString() == "Admin")
                         {
+                            Session["adminid"] = dr.GetValue(0).ToString();
+                        }
+                        else
+                        {
                             Session["userid"] = dr.GetValue(0).ToString();
                         }
+
                      }
                 }
                 else

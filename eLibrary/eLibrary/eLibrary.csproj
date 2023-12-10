@@ -71,6 +71,7 @@
     <Content Include="bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="datatables\css\jquery.dataTables.min.css" />
     <Content Include="datatables\js\jquery.dataTables.min.js" />
+    <Content Include="finishTasks.aspx" />
     <Content Include="fontawesome\css\all.css" />
     <Content Include="fontawesome\css\all.min.css" />
     <Content Include="fontawesome\css\brands.css" />
@@ -2148,13 +2149,24 @@
     <Content Include="imgs\homesync.jpeg" />
     <Content Include="imgs\login.png" />
     <Content Include="register.aspx" />
+    <Content Include="updateDeadline.aspx" />
+    <Content Include="viewStatus.aspx" />
+    <Content Include="viewTask.aspx" />
     <Content Include="Web.config" />
     <Content Include="homepage.aspx" />
     <Content Include="userLogin.aspx" />
     <Content Include="setTasks.aspx" />
-    <Content Include="manageTasks.aspx" />
+    <Content Include="addTask.aspx" />
+    <Content Include="addReminder.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="finishTasks.aspx.cs">
+      <DependentUpon>finishTasks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="finishTasks.aspx.designer.cs">
+      <DependentUpon>finishTasks.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="register.aspx.cs">
       <DependentUpon>register.aspx</DependentUpon>
@@ -2177,6 +2189,13 @@
     <Compile Include="homepage.aspx.designer.cs">
       <DependentUpon>homepage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="updateDeadline.aspx.cs">
+      <DependentUpon>updateDeadline.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="updateDeadline.aspx.designer.cs">
+      <DependentUpon>updateDeadline.aspx</DependentUpon>
+    </Compile>
     <Compile Include="userLogin.aspx.cs">
       <DependentUpon>userLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2191,12 +2210,33 @@
     <Compile Include="setTasks.aspx.designer.cs">
       <DependentUpon>setTasks.aspx</DependentUpon>
     </Compile>
-    <Compile Include="manageTasks.aspx.cs">
-      <DependentUpon>manageTasks.aspx</DependentUpon>
+    <Compile Include="addTask.aspx.cs">
+      <DependentUpon>addTask.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="manageTasks.aspx.designer.cs">
-      <DependentUpon>manageTasks.aspx</DependentUpon>
+    <Compile Include="addTask.aspx.designer.cs">
+      <DependentUpon>addTask.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="addReminder.aspx.cs">
+      <DependentUpon>addReminder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addReminder.aspx.designer.cs">
+      <DependentUpon>addReminder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewStatus.aspx.cs">
+      <DependentUpon>viewStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewStatus.aspx.designer.cs">
+      <DependentUpon>viewStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewTask.aspx.cs">
+      <DependentUpon>viewTask.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewTask.aspx.designer.cs">
+      <DependentUpon>viewTask.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

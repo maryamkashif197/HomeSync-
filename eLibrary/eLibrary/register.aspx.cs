@@ -14,7 +14,6 @@ namespace eLibrary
 {
     public partial class register : System.Web.UI.Page
     {
-        string connStr = WebConfigurationManager.ConnectionStrings["HomeSync"].ToString();
 
         //string strcon = ConfigurationManager.ConnectionStrings["HomeSync"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
@@ -71,50 +70,40 @@ namespace eLibrary
 
         protected void UserRegister(object sender, EventArgs e)
         {
+            string connStr = WebConfigurationManager.ConnectionStrings["HomeSync"].ToString();
+           
+            SqlConnection con = new SqlConnection(connStr);
             
-            try
+            SqlCommand cmd = new SqlCommand("UserRegister", con);
+
+            cmd.Parameters.Add("@usertype", SqlDbType.VarChar).Value = usertype.Text;
+            cmd.Parameters.Add("@email", SqlDbType.VarChar).Value = email.Text;
+            cmd.Parameters.Add("@first_name", SqlDbType.VarChar).Value = firstname.Text;
+            cmd.Parameters.Add("@last_name", SqlDbType.VarChar).Value = lastname.Text;
+            cmd.Parameters.Add("@birth_date", SqlDbType.Date).Value = brithdate.Text;
+            cmd.Parameters.Add("@password", SqlDbType.VarChar).Value = password.Text;
+
+            SqlParameter userId = new SqlParameter("@user_id", SqlDbType.Int);
+            userId.Direction = ParameterDirection.Output;
+
+            cmd.Parameters.Add(userId);
+            cmd.CommandType = CommandType.StoredProcedure;                  
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            if (userId.Value.ToString() != "")
             {
-                using (SqlConnection con = new SqlConnection(connStr))
-                {
-                    SqlCommand cmd = new SqlCommand("UserRegister", con);
 
-                    cmd.Parameters.Add("@usertype", SqlDbType.VarChar).Value = usertype.Text;
-                    cmd.Parameters.Add("@email", SqlDbType.VarChar).Value = email.Text;
-                    cmd.Parameters.Add("@first_name", SqlDbType.VarChar).Value = firstname.Text;
-                    cmd.Parameters.Add("@last_name", SqlDbType.VarChar).Value = lastname.Text;
-                    cmd.Parameters.Add("@birth_date", SqlDbType.Date).Value = brithdate.Text;
-                    cmd.Parameters.Add("@password", SqlDbType.VarChar).Value = password.Text;
+                Response.Write("thanks for register, your id is: " + userId.Value.ToString());
+                    //SESSION['type'] = usertype.Text;
 
-                    SqlParameter userId = new SqlParameter("@user_id", SqlDbType.Int);
-                    userId.Direction = ParameterDirection.Output;
-
-                    cmd.Parameters.Add(userId);
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-
-                    if(userId.Value.ToString() != "")
-                    {
-
-                        Response.Write("thanks for register, your id is: " + userId.Value.ToString());
-                        //SESSION['type'] = usertype.Text;
-
-                    }
-                    else
-                    {
-                        Response.Write("something went wrong");
-                    }
-                }
-                
-
-               
             }
-            catch (Exception ex)
+            else
             {
-                Response.Write("<script>alert('An error occurred: " + ex.Message + "');</script>");
+                Response.Write("something went wrong");
             }
+            
 
         }
     }
