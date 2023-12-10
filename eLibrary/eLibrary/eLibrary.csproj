@@ -2151,8 +2151,8 @@
     <Content Include="Web.config" />
     <Content Include="homepage.aspx" />
     <Content Include="userLogin.aspx" />
-    <Content Include="tasks\setTasks.aspx" />
-    <Content Include="tasks\manageTasks.aspx" />
+    <Content Include="setTasks.aspx" />
+    <Content Include="manageTasks.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2184,18 +2184,18 @@
     <Compile Include="userLogin.aspx.designer.cs">
       <DependentUpon>userLogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="tasks\setTasks.aspx.cs">
+    <Compile Include="setTasks.aspx.cs">
       <DependentUpon>setTasks.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="tasks\setTasks.aspx.designer.cs">
+    <Compile Include="setTasks.aspx.designer.cs">
       <DependentUpon>setTasks.aspx</DependentUpon>
     </Compile>
-    <Compile Include="tasks\manageTasks.aspx.cs">
+    <Compile Include="manageTasks.aspx.cs">
       <DependentUpon>manageTasks.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="tasks\manageTasks.aspx.designer.cs">
+    <Compile Include="manageTasks.aspx.designer.cs">
       <DependentUpon>manageTasks.aspx</DependentUpon>
     </Compile>
   </ItemGroup>

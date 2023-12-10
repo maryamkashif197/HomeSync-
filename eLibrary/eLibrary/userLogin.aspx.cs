@@ -54,6 +54,7 @@ namespace eLibrary
                    while (dr.Read())
                      {
                         Session["type"] = dr.GetValue(7).ToString();
+                        Session["userid"] = dr.GetValue(0).ToString();
                      }
                 }
                 else
