@@ -2145,9 +2145,11 @@
     <Content Include="fontawesome\svgs\solid\yen-sign.svg" />
     <Content Include="fontawesome\svgs\solid\yin-yang.svg" />
     <Content Include="fontawesome\svgs\solid\z.svg" />
+    <Content Include="HomeSync %287%29.sql" />
     <Content Include="imgs\6194029.png" />
     <Content Include="imgs\homesync.jpeg" />
     <Content Include="imgs\login.png" />
+    <Content Include="profile.aspx" />
     <Content Include="register.aspx" />
     <Content Include="updateDeadline.aspx" />
     <Content Include="viewStatus.aspx" />
@@ -2166,6 +2168,13 @@
     </Compile>
     <Compile Include="finishTasks.aspx.designer.cs">
       <DependentUpon>finishTasks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="profile.aspx.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profile.aspx.designer.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="register.aspx.cs">

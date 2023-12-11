@@ -21,6 +21,7 @@ namespace eLibrary
                     LinkButton3.Visible = true; //sign out
                     LinkButton7.Visible = true; // view Task
                     LinkButton8.Visible = true; //finish task
+                    LinkButton9.Visible = true; //profile
                     if (Session["type"].ToString() == "Admin")
                     {
                         navbarDropdownTasks.Visible = true;
@@ -41,6 +42,7 @@ namespace eLibrary
                     LinkButton7.Visible=false;
                     LinkButton8.Visible=false;//finish task
                     navbarDropdownTasks.Visible = false; // tasks downmenu
+                    LinkButton9.Visible=false;
 
                 }
             }
@@ -82,6 +84,10 @@ namespace eLibrary
         protected void LinkButton8_Click(object sender, EventArgs e) //add task
         {
             Response.Redirect("finishTasks.aspx");
+        }
+        protected void LinkButton9_Click(object sender, EventArgs e) //add task
+        {
+            Response.Redirect("profile.aspx");
         }
     }
 }

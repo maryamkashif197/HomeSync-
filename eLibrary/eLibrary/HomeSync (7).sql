@@ -669,8 +669,6 @@ CREATE PROCEDURE CreateSchedule
 		INSERT INTO RoomSchedule (creator_id, action, room, start_time, end_time)
 		VALUES (@creator_id, @action, @room_id, @start_time, @end_time)
 END
-
-
 -- 4 Ahmed Alaa And Gamal Sheta
 GO
  CREATE PROCEDURE GuestRemove
@@ -1070,6 +1068,8 @@ WHERE status = 'Out of battery'
 
 END
 
+
+
 --Maryam kashif
 --27
 GO
@@ -1344,7 +1344,6 @@ INSERT INTO Admin(admin_id,no_of_guests_allowed,salary) VALUES (1101,20,2000);
 INSERT INTO Admin(admin_id,no_of_guests_allowed,salary) VALUES (1884,30,5000);
 INSERT INTO Admin(admin_id,no_of_guests_allowed,salary) VALUES (1909,20,6000);
 INSERT INTO Admin(admin_id,no_of_guests_allowed,salary) VALUES (19291,10,8000);
-
 
 INSERT INTO Guest(guest_id,guest_of,address,arrival_date,departure_date,residential) VALUES(1452,1900,'Masr gadeda','2023/5/4','2005/6/3','flat 5');
 INSERT INTO Guest(guest_id,guest_of,address,arrival_date,departure_date,residential) VALUES(1322,1909,'Madinty','2023/5/7','2005/6/3','Villa 230');
@@ -1647,9 +1646,9 @@ SELECT *  FROM Device
 EXEC OutOfBattery
 --26
 EXEC Charging
-
+select * from Users
 --27 
-EXEC GuestsAllowed @admin_id = 1909, @number_of_guests = 30
+EXEC GuestsAllowed @admin_id = 11001930, @number_of_guests = 30
 EXEC GuestsAllowed 1900, 5
 SELECT no_of_guests_allowed from Admin where admin_id = 1101
 SELECT * FROM Admin
