@@ -1117,6 +1117,7 @@ CREATE PROCEDURE GuestNumber
 		HAVING guest_of = @admin_id
 END
 
+
 --Maryam kashif
 -- 30
 GO
@@ -1345,11 +1346,11 @@ INSERT INTO Admin(admin_id,no_of_guests_allowed,salary) VALUES (1884,30,5000);
 INSERT INTO Admin(admin_id,no_of_guests_allowed,salary) VALUES (1909,20,6000);
 INSERT INTO Admin(admin_id,no_of_guests_allowed,salary) VALUES (19291,10,8000);
 
-INSERT INTO Guest(guest_id,guest_of,address,arrival_date,departure_date,residential) VALUES(1452,1900,'Masr gadeda','2023/5/4','2005/6/3','flat 5');
-INSERT INTO Guest(guest_id,guest_of,address,arrival_date,departure_date,residential) VALUES(1322,1909,'Madinty','2023/5/7','2005/6/3','Villa 230');
-INSERT INTO Guest(guest_id,guest_of,address,arrival_date,departure_date,residential) VALUES(1389,1884,'El Sherouk','2023/9/6','2005/6/3','flat 6');
-INSERT INTO Guest(guest_id,guest_of,address,arrival_date,departure_date,residential) VALUES(18731,1909,'El Rehab','2023/3/1','2005/6/3','flat 5');
-INSERT INTO Guest(guest_id,guest_of,address,arrival_date,departure_date,residential) VALUES(1884,19291,'Madinty','2023/5/4','2005/6/3','Villa 9');
+INSERT INTO Guest(guest_id,guest_of,address,arrival_date,departure_date,residential) VALUES(1,11001930,'Masr gadeda','2023/5/4','2005/6/3','flat 5');
+INSERT INTO Guest(guest_id,guest_of,address,arrival_date,departure_date,residential) VALUES(2,11001930,'Madinty','2023/5/7','2005/6/3','Villa 230');
+INSERT INTO Guest(guest_id,guest_of,address,arrival_date,departure_date,residential) VALUES(3,11001930,'El Sherouk','2023/9/6','2005/6/3','flat 6');
+INSERT INTO Guest(guest_id,guest_of,address,arrival_date,departure_date,residential) VALUES(4,11001930,'El Rehab','2023/3/1','2005/6/3','flat 5');
+INSERT INTO Guest(guest_id,guest_of,address,arrival_date,departure_date,residential) VALUES(5,11001930,'Madinty','2023/5/4','2005/6/3','Villa 9');
 
 INSERT INTO Device (device_id, type, status, battery_status, room) VALUES
     (1, 'Camera', 'Out of battery', 0, 1300),

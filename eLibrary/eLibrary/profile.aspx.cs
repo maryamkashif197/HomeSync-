@@ -18,7 +18,14 @@ namespace eLibrary
         }
         protected void GuestRemove(object sender, EventArgs e)
         {
-            if (Session["adminid"] == null)
+
+            if (Session["adminid"] == null && Session["userid"] == null)
+            {
+                Button1.Visible = false;
+                ShowStatusMessage("Login as admin to be able to use this", "error");
+                return;
+            }
+            else if (Session["userid"] != null && Session["adminid"] == null)
             {
                 Button1.Visible = false;
                 ShowStatusMessage("You have to be an admin to be able to remove a guest.", "error");
@@ -143,6 +150,40 @@ namespace eLibrary
             GridView1.DataBind();
 
         }
+        protected void GuestNumber(object sender, EventArgs e)
+        {
+            string connStr = WebConfigurationManager.ConnectionStrings["HomeSync"].ToString();
+            SqlConnection conn = new SqlConnection(connStr);
 
+
+            SqlCommand GuestNumber = new SqlCommand("GuestNumber", conn);
+            GuestNumber.CommandType = CommandType.StoredProcedure;
+            if (Session["adminid"] != null)
+            {
+                GuestNumber.Parameters.Add("@admin_id", SqlDbType.Int).Value = int.Parse(Session["adminid"].ToString());
+                SqlParameter guestNumbers = GuestNumber.Parameters.Add("@guest_num", SqlDbType.Int);
+                guestNumbers.Direction = ParameterDirection.Output;
+               
+                DataTable dt = new DataTable();
+                
+                conn.Open();
+                GuestNumber.ExecuteNonQuery();
+                conn.Close();
+
+                int numberOfGuests = Convert.ToInt32(guestNumbers.Value);
+                ShowStatusMessage($"Number of Guests: {numberOfGuests}", "success");
+
+                GridView1.DataSource = dt;
+                GridView1.DataBind();
+            }
+            else
+            {
+                ShowStatusMessage("You have to be a signed admin to do this", "error");
+                return;
+
+            }
+
+
+        }
     }
 }

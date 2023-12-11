@@ -65,12 +65,13 @@ namespace eLibrary
 
                      }
                 }
+
                 else
                 {
                     Response.Write("<script>alert('invalid query');</script>");
                 }
 
-                Response.Redirect("homepage.aspx");
+                Response.Redirect("profile.aspx");
                 
             }
             else

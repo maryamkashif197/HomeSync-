@@ -35,6 +35,38 @@
                 </div>
                 <br />
             </div>
+             <div class="col-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <h4>Get number of Guests</h4>
+                                </center>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <img width="60" src="imgs/login.png" />
+                                </center>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <hr>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-5">
+                                <asp:Button ID="Button3" class="btn btn-lg btn-block btn-primary" runat="server" Text="Get Guests" OnClick="GuestNumber" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            </div>
             <div class="col-md-2">
                 <div class="card">
                     <div class="card-body">
@@ -85,15 +117,31 @@
                  <asp:Button ID="Button5" class="btn btn-lg btn-block btn-primary" runat="server" Text="Set N.Guests" OnClick="GuestsAllowed" Visible="true" />
               </div>
                </div>
-                        <div class="row">
-                            <div class="col">
-                                <asp:Label ID="StatusLabel" runat="server" Visible="false"></asp:Label>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <br />
             </div>
+         <div class="col-md-5">
+                  <div class="card">
+                      <div class="card-body">
+                          <div class="row">
+                              <div class="col">
+                                 <label>Number of Guests:-</label>
+                              </div>
+                          </div>
+                        <div class="row">
+                           <div class="col">
+                             <hr />
+                          </div>
+                          </div>
+                          <div class="row">
+                              <div class="col">
+                                 <asp:Label ID="StatusLabel" runat="server" Visible="false"></asp:Label>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
