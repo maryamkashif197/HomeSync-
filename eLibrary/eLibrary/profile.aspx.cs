@@ -14,18 +14,22 @@ namespace eLibrary
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (Session["userid"] == null && Session["adminid"] == null)
+            {
+                // keda lw ana msh 3amel login, i will be forced to
+                Response.Redirect("userLogin.aspx");
+            }
         }
         protected void GuestRemove(object sender, EventArgs e)
         {
 
-            if (Session["adminid"] == null && Session["userid"] == null)
+            /**if (Session["adminid"] == null && Session["userid"] == null)
             {
                 Button1.Visible = false;
                 ShowStatusMessage("Login as admin to be able to use this", "error");
                 return;
-            }
-            else if (Session["userid"] != null && Session["adminid"] == null)
+            }**/
+            if (Session["userid"] != null && Session["adminid"] == null)
             {
                 Button1.Visible = false;
                 ShowStatusMessage("You have to be an admin to be able to remove a guest.", "error");
@@ -55,12 +59,14 @@ namespace eLibrary
 
                 if (numberOfAllowedGuests >= 0)
                 {
-                    ShowStatusMessage("Guest removed successfully.", "success");
+                    ShowStatusMessage("Guest removed successfully and his account has been deleted. number of guests allowed: "+$"{numberOfAllowedGuests}", "success");
+
                 }
                 else
                 {
                     ShowStatusMessage("Failed to remove guest.", "error");
                 }
+
             }else
             {
                 ShowStatusMessage("Please provide guest id.", "error");
@@ -105,12 +111,12 @@ namespace eLibrary
                 Button5.Visible = false;
                 return;
             }
-            else
+            /**else
             {
                 ShowStatusMessage("You have to sign in first", "error");
                 Button5.Visible = false;
                 return;
-            }
+            }**/
 
             conn.Open();
             GuestsAllowed.ExecuteNonQuery();
@@ -121,7 +127,7 @@ namespace eLibrary
         {
             string connStr = WebConfigurationManager.ConnectionStrings["HomeSync"].ToString();
             SqlConnection conn = new SqlConnection(connStr);
-
+            
 
             SqlCommand ViewProfile = new SqlCommand("ViewProfile", conn);
             ViewProfile.CommandType = CommandType.StoredProcedure;

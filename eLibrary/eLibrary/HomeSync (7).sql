@@ -1,17 +1,13 @@
-﻿CREATE DATABASE HomeSync
-USE HomeSync
-SELECT * FROM Tasks
-SELECT * FROM Assigned_to
-SELECT * FROM Users
+﻿CREATE DATABASE HomeSync1
+USE HomeSync1
 CREATE TABLE Room(
 	room_id INT,
-	type VARCHAR(50),
+	type VARCHAR(50),	
 	floor INT,
 	status VARCHAR(40),
 
 	PRIMARY KEY(room_id)
 );
-
 CREATE TABLE Users(
 	user_id INT IDENTITY,
 	first_name VARCHAR(50),
@@ -25,9 +21,8 @@ CREATE TABLE Users(
 	age AS (YEAR(CURRENT_TIMESTAMP) - YEAR(birthdate)),
 	
 	PRIMARY KEY(user_id),
-	FOREIGN KEY (room) REFERENCES Room ON DELETE SET NULL ON UPDATE CASCADE
+	FOREIGN KEY (room) REFERENCES Room 
 );
-
 CREATE TABLE Admin(
 	admin_id INT,
 	no_of_guests_allowed INT DEFAULT 30,
@@ -87,7 +82,6 @@ CREATE TABLE Calender(
 	PRIMARY KEY(event_id,user_assigned_to),
 	FOREIGN KEY(user_assigned_to) REFERENCES Users ON DELETE CASCADE ON UPDATE CASCADE
 );
-
 CREATE TABLE Notes(
 	note_id INT IDENTITY,
 	user_id INT,
@@ -113,7 +107,6 @@ CREATE TABLE Travel(
 
 	PRIMARY KEY(trip_no)
 );
-
 CREATE TABLE User_trip(
 	trip_no INT NOT NULL,
 	user_id INT NOT NULL,
@@ -125,7 +118,6 @@ CREATE TABLE User_trip(
 	FOREIGN KEY(trip_no) REFERENCES Travel ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY(user_id) REFERENCES Users ON DELETE CASCADE ON UPDATE CASCADE
 );
-
 CREATE TABLE Finance(
 	payement_id INT IDENTITY PRIMARY KEY,
 	user_id INT,
@@ -141,7 +133,6 @@ CREATE TABLE Finance(
 
 	FOREIGN KEY(user_id) REFERENCES Users ON DELETE CASCADE ON UPDATE CASCADE
 );
-
 CREATE TABLE Health(
 	date DATETIME NOT NULL,
 	activity VARCHAR(30) NOT NULL,
@@ -180,7 +171,6 @@ CREATE TABLE Device(
 	PRIMARY KEY(device_id),
 	FOREIGN KEY(room) REFERENCES Room ON DELETE SET NULL ON UPDATE CASCADE
 );
-
 CREATE TABLE RoomSchedule (
 	creator_id INT,
 	action VARCHAR(50),
@@ -192,7 +182,6 @@ CREATE TABLE RoomSchedule (
 	FOREIGN KEY(creator_id) REFERENCES Users ON DELETE CASCADE,
 	FOREIGN KEY(room) REFERENCES Room ON DELETE CASCADE ON UPDATE CASCADE
 );
-
 CREATE TABLE Log (
 	room_id INT,
 	device_id INT NOT NULL,
@@ -215,7 +204,6 @@ CREATE TABLE Consumption(
 	CONSTRAINT [PK_Consumption] PRIMARY KEY CLUSTERED (device_id, date),
 	FOREIGN KEY(device_id) REFERENCES Device ON DELETE CASCADE ON UPDATE CASCADE
 );
-
 CREATE TABLE Preferences (
 	user_id INT,
 	category VARCHAR(50),
@@ -675,20 +663,28 @@ GO
     @guest_id INT,
     @admin_id INT,
     @number_of_allowed_guests INT OUTPUT
-	AS
-	BEGIN
-		IF(EXISTS(SELECT * FROM Guest WHERE guest_id = @guest_id)) BEGIN
-			DECLARE @current_number_of_guests INT;
-			SELECT @current_number_of_guests = no_of_guests_allowed
-			FROM Admin
-			WHERE admin_id = @admin_id;
-			DELETE FROM Guest
-			WHERE guest_id = @guest_id;
-			SET @number_of_allowed_guests = @current_number_of_guests + 1;
-			UPDATE Admin
-			SET no_of_guests_allowed = @number_of_allowed_guests
-			WHERE admin_id = @admin_id;
-		END
+AS
+BEGIN
+    IF (EXISTS (SELECT * FROM Guest WHERE guest_id = @guest_id))
+    BEGIN
+        DECLARE @current_number_of_guests INT;
+        SELECT @current_number_of_guests = no_of_guests_allowed
+        FROM Admin
+        WHERE admin_id = @admin_id;
+
+        -- Delete the user associated with the removed guest
+        DELETE FROM Users
+        WHERE user_id = @guest_id;
+
+        DELETE FROM Guest
+        WHERE guest_id = @guest_id;
+
+        SET @number_of_allowed_guests = @current_number_of_guests + 1;
+
+        UPDATE Admin
+        SET no_of_guests_allowed = @number_of_allowed_guests
+        WHERE admin_id = @admin_id;
+    END
 END;
 
 --Yahya 
@@ -1167,8 +1163,9 @@ CREATE PROCEDURE NeedCharge
 		FROM Device 
 		WHERE battery_status <= 0
 		GROUP BY room
-		HAVING COUNT(*) > 2
+		HAVING COUNT(battery_status) > 2
 END
+
 
 
 -- 34 Ahmed Alaa And Gamal Sheta
@@ -1339,19 +1336,19 @@ VALUES(1101,'Nour','Tamer',345287,'NourTamer@gmail.com','suit',1425,'2006/5/13',
 INSERT INTO Users(user_id, first_name, last_name, password, email, preference, room, birthdate, type)
 VALUES(1884,'Joy','Grace',345287,'JoyGrace@gmail.com','suit',1888,'2002/5/10','Admin');
 SET IDENTITY_INSERT Users OFF
-
 INSERT INTO Admin(admin_id,no_of_guests_allowed,salary) VALUES (1900,10,10000);
 INSERT INTO Admin(admin_id,no_of_guests_allowed,salary) VALUES (1101,20,2000);
 INSERT INTO Admin(admin_id,no_of_guests_allowed,salary) VALUES (1884,30,5000);
 INSERT INTO Admin(admin_id,no_of_guests_allowed,salary) VALUES (1909,20,6000);
 INSERT INTO Admin(admin_id,no_of_guests_allowed,salary) VALUES (19291,10,8000);
-
+select * from Guest
 INSERT INTO Guest(guest_id,guest_of,address,arrival_date,departure_date,residential) VALUES(1,11001930,'Masr gadeda','2023/5/4','2005/6/3','flat 5');
 INSERT INTO Guest(guest_id,guest_of,address,arrival_date,departure_date,residential) VALUES(2,11001930,'Madinty','2023/5/7','2005/6/3','Villa 230');
 INSERT INTO Guest(guest_id,guest_of,address,arrival_date,departure_date,residential) VALUES(3,11001930,'El Sherouk','2023/9/6','2005/6/3','flat 6');
 INSERT INTO Guest(guest_id,guest_of,address,arrival_date,departure_date,residential) VALUES(4,11001930,'El Rehab','2023/3/1','2005/6/3','flat 5');
 INSERT INTO Guest(guest_id,guest_of,address,arrival_date,departure_date,residential) VALUES(5,11001930,'Madinty','2023/5/4','2005/6/3','Villa 9');
 
+SELECT * FROM Device
 INSERT INTO Device (device_id, type, status, battery_status, room) VALUES
     (1, 'Camera', 'Out of battery', 0, 1300),
     (2, 'Camera', 'Charging', 0, 1402),
@@ -1360,9 +1357,9 @@ INSERT INTO Device (device_id, type, status, battery_status, room) VALUES
     (5, 'Camera', 'Charging', 1, 1601)
 
 INSERT INTO Device(device_id, room, type, status, battery_status) 
-VALUES (6, 1300, 'PC', 'Out of battery', 0), 
-		(7, 1300, 'Mobile', 'Charging', 0),
-		(8, 1300, 'Tablet', 'Out of battery', 50)
+VALUES (13, 1500, 'PC', 'Out of battery', 0), 
+		(14, 1601, 'Mobile', 'Charging', 0),
+		(15, 1601, 'Tablet', 'Out of battery', 0)
 
 INSERT INTO Consumption(device_id, date, consumption) VALUES(8, '2/3/2023', 3), (1, '5/7/2023', 40)
 

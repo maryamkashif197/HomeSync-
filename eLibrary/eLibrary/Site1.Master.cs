@@ -22,12 +22,18 @@ namespace eLibrary
                     LinkButton7.Visible = true; // view Task
                     LinkButton8.Visible = true; //finish task
                     LinkButton9.Visible = true; //profile
+                    navbarDropdownDevice.Visible = true;//device drownmenu
+                    LinkButton14.Visible = true; // view charge
                     if (Session["type"].ToString() == "Admin")
                     {
                         navbarDropdownTasks.Visible = true;
                         LinkButton4.Visible = true;//add task
                         LinkButton5.Visible = true;//add reminder
                         LinkButton6.Visible = true;//update deadline
+                        LinkButton10.Visible=true; // Add device
+                        LinkButton11.Visible = true; // Location of device
+                        LinkButton12.Visible = true; // Status device
+                        LinkButton13.Visible = true; // Location of 2 died devices
 
                     }
                 }
@@ -43,7 +49,6 @@ namespace eLibrary
                     LinkButton8.Visible=false;//finish task
                     navbarDropdownTasks.Visible = false; // tasks downmenu
                     LinkButton9.Visible=false;
-
                 }
             }
             catch (Exception ex){
@@ -88,6 +93,26 @@ namespace eLibrary
         protected void LinkButton9_Click(object sender, EventArgs e) //add task
         {
             Response.Redirect("profile.aspx");
+        }
+        protected void LinkButton10_Click(object sender, EventArgs e) //add Device
+        {
+            Response.Redirect("addDevice.aspx");
+        }
+        protected void LinkButton11_Click(object sender, EventArgs e) //Location of device
+        {
+            Response.Redirect("locationOfDevice.aspx");
+        }
+        protected void LinkButton12_Click(object sender, EventArgs e) //Set charging
+        {
+            Response.Redirect("setCharging.aspx");
+        }
+        protected void LinkButton13_Click(object sender, EventArgs e) //need charge
+        {
+            Response.Redirect("needCharge.aspx");
+        }
+        protected void LinkButton14_Click(object sender, EventArgs e) //view charge
+        {
+            Response.Redirect("viewCharge.aspx");
         }
     }
 }

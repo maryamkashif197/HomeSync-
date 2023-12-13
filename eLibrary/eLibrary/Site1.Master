@@ -67,6 +67,19 @@
                          </ul>
                         </div>
                     </li>
+                    <li class="nav-item dropdown">
+                        <asp:HyperLink id="navbarDropdownDevice" runat="server" class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" Visible="false">
+                            Device
+                        </asp:HyperLink>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownTasks"><ul>
+                             <li class="dropdown-item"><asp:LinkButton ID="LinkButton11" runat="server" OnClick="LinkButton11_Click" Visible="False">Location Of Device</asp:LinkButton></li>
+                             <li class="dropdown-item"><asp:LinkButton ID="LinkButton13" runat="server" OnClick="LinkButton13_Click" Visible="False">Location of 2Died battery</asp:LinkButton></li>
+                            <li class="dropdown-item"><asp:LinkButton ID="LinkButton12" runat="server" OnClick="LinkButton12_Click" Visible="False">Status Charging</asp:LinkButton></li>
+                             <li class="dropdown-item"><asp:LinkButton ID="LinkButton10" runat="server" OnClick="LinkButton10_Click" Visible="False">Add Device</asp:LinkButton></li>
+                            <li class="dropdown-item"><asp:LinkButton ID="LinkButton14" runat="server" OnClick="LinkButton14_Click" Visible="False">View Charge</asp:LinkButton></li>
+                         </ul>
+                        </div>
+                    </li>
                 </ul>
 
                </div>

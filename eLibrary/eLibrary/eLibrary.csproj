@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="addDevice.aspx" />
     <Content Include="bootstrap\css\bootstrap.min.css" />
     <Content Include="bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="datatables\css\jquery.dataTables.min.css" />
@@ -2149,9 +2150,13 @@
     <Content Include="imgs\6194029.png" />
     <Content Include="imgs\homesync.jpeg" />
     <Content Include="imgs\login.png" />
+    <Content Include="locationOfDevice.aspx" />
+    <Content Include="needCharge.aspx" />
     <Content Include="profile.aspx" />
     <Content Include="register.aspx" />
+    <Content Include="setCharging.aspx" />
     <Content Include="updateDeadline.aspx" />
+    <Content Include="viewCharge.aspx" />
     <Content Include="viewStatus.aspx" />
     <Content Include="viewTask.aspx" />
     <Content Include="Web.config" />
@@ -2162,12 +2167,33 @@
     <Content Include="addReminder.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addDevice.aspx.cs">
+      <DependentUpon>addDevice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addDevice.aspx.designer.cs">
+      <DependentUpon>addDevice.aspx</DependentUpon>
+    </Compile>
     <Compile Include="finishTasks.aspx.cs">
       <DependentUpon>finishTasks.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="finishTasks.aspx.designer.cs">
       <DependentUpon>finishTasks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="locationOfDevice.aspx.cs">
+      <DependentUpon>locationOfDevice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="locationOfDevice.aspx.designer.cs">
+      <DependentUpon>locationOfDevice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="needCharge.aspx.cs">
+      <DependentUpon>needCharge.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="needCharge.aspx.designer.cs">
+      <DependentUpon>needCharge.aspx</DependentUpon>
     </Compile>
     <Compile Include="profile.aspx.cs">
       <DependentUpon>profile.aspx</DependentUpon>
@@ -2183,6 +2209,13 @@
     </Compile>
     <Compile Include="register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="setCharging.aspx.cs">
+      <DependentUpon>setCharging.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="setCharging.aspx.designer.cs">
+      <DependentUpon>setCharging.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
@@ -2232,6 +2265,13 @@
     </Compile>
     <Compile Include="addReminder.aspx.designer.cs">
       <DependentUpon>addReminder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewCharge.aspx.cs">
+      <DependentUpon>viewCharge.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewCharge.aspx.designer.cs">
+      <DependentUpon>viewCharge.aspx</DependentUpon>
     </Compile>
     <Compile Include="viewStatus.aspx.cs">
       <DependentUpon>viewStatus.aspx</DependentUpon>
