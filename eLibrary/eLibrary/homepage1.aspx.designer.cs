@@ -11,7 +11,7 @@ namespace eLibrary
 {
 
 
-    public partial class MainWebsite
+    public partial class WebForm1
     {
     }
 }

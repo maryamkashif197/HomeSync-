@@ -72,6 +72,7 @@
     <Content Include="bootstrap\css\bootstrap.min.css" />
     <Content Include="bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="createSchedule.aspx" />
+    <Content Include="css\syle.css" />
     <Content Include="datatables\css\jquery.dataTables.min.css" />
     <Content Include="datatables\js\jquery.dataTables.min.js" />
     <Content Include="finishTasks.aspx" />
@@ -2149,10 +2150,21 @@
     <Content Include="fontawesome\svgs\solid\yin-yang.svg" />
     <Content Include="fontawesome\svgs\solid\z.svg" />
     <Content Include="HomeSync %287%29.sql" />
+    <Content Include="images\ace.jpg" />
+    <Content Include="images\cert.jpg" />
+    <Content Include="images\ecommerce.jpg" />
+    <Content Include="images\jimmy.jpg" />
+    <Content Include="images\jobs.jpeg" />
+    <Content Include="images\one.jpg" />
+    <Content Include="images\security.jpg" />
+    <Content Include="images\test.jpeg" />
+    <Content Include="images\two.jpeg" />
+    <Content Include="images\websec.jpg" />
     <Content Include="imgs\6194029.png" />
     <Content Include="imgs\homesync.jpeg" />
     <Content Include="imgs\login.png" />
     <Content Include="locationOfDevice.aspx" />
+    <Content Include="homepage.aspx" />
     <Content Include="needCharge.aspx" />
     <Content Include="profile.aspx" />
     <Content Include="register.aspx" />
@@ -2164,7 +2176,7 @@
     <Content Include="viewStatus.aspx" />
     <Content Include="viewTask.aspx" />
     <Content Include="Web.config" />
-    <Content Include="homepage.aspx" />
+    <Content Include="homepage1.aspx" />
     <Content Include="userLogin.aspx" />
     <Content Include="setTasks.aspx" />
     <Content Include="addTask.aspx" />
@@ -2205,6 +2217,13 @@
     </Compile>
     <Compile Include="locationOfDevice.aspx.designer.cs">
       <DependentUpon>locationOfDevice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="homepage.aspx.cs">
+      <DependentUpon>homepage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="homepage.aspx.designer.cs">
+      <DependentUpon>homepage.aspx</DependentUpon>
     </Compile>
     <Compile Include="needCharge.aspx.cs">
       <DependentUpon>needCharge.aspx</DependentUpon>
@@ -2249,12 +2268,12 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
-    <Compile Include="homepage.aspx.cs">
-      <DependentUpon>homepage.aspx</DependentUpon>
+    <Compile Include="homepage1.aspx.cs">
+      <DependentUpon>homepage1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="homepage.aspx.designer.cs">
-      <DependentUpon>homepage.aspx</DependentUpon>
+    <Compile Include="homepage1.aspx.designer.cs">
+      <DependentUpon>homepage1.aspx</DependentUpon>
     </Compile>
     <Compile Include="updateDeadline.aspx.cs">
       <DependentUpon>updateDeadline.aspx</DependentUpon>
@@ -2377,6 +2396,7 @@
     <None Include="packages.config" />
     <Content Include="Site1.Master" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
