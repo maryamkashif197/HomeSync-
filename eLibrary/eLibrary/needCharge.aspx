@@ -42,7 +42,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <h4>Task List</h4>
+                                    <h4>Result of Query</h4>
                                 </center>
                             </div>
                         </div>

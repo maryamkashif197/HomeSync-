@@ -642,7 +642,8 @@ END;
 		WHERE event_id = @event_id AND user_assigned_to = @user_id;
 END
 
---Maryam kashif  And Gamal Sheta
+--Ahmed Alaa And Gamal Sheta
+
 -- 3 
 GO
 CREATE PROCEDURE CreateSchedule
@@ -658,6 +659,7 @@ CREATE PROCEDURE CreateSchedule
 		VALUES (@creator_id, @action, @room_id, @start_time, @end_time)
 END
 -- 4 Ahmed Alaa And Gamal Sheta
+-- edited to delete the user as well from Users table
 GO
  CREATE PROCEDURE GuestRemove
     @guest_id INT,
@@ -1566,6 +1568,7 @@ SELECT * FROM Log
 
 --15
 EXEC ViewRoom;
+
 --16
 
 EXEC ViewMeeting @room_id =1599 ,@user_id = 1900

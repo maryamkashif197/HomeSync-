@@ -68,8 +68,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="addDevice.aspx" />
+    <Content Include="assignRoom.aspx" />
     <Content Include="bootstrap\css\bootstrap.min.css" />
     <Content Include="bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="createSchedule.aspx" />
     <Content Include="datatables\css\jquery.dataTables.min.css" />
     <Content Include="datatables\js\jquery.dataTables.min.js" />
     <Content Include="finishTasks.aspx" />
@@ -2154,9 +2156,11 @@
     <Content Include="needCharge.aspx" />
     <Content Include="profile.aspx" />
     <Content Include="register.aspx" />
+    <Content Include="roomAv.aspx" />
     <Content Include="setCharging.aspx" />
     <Content Include="updateDeadline.aspx" />
     <Content Include="viewCharge.aspx" />
+    <Content Include="viewRoom.aspx" />
     <Content Include="viewStatus.aspx" />
     <Content Include="viewTask.aspx" />
     <Content Include="Web.config" />
@@ -2173,6 +2177,20 @@
     </Compile>
     <Compile Include="addDevice.aspx.designer.cs">
       <DependentUpon>addDevice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="assignRoom.aspx.cs">
+      <DependentUpon>assignRoom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="assignRoom.aspx.designer.cs">
+      <DependentUpon>assignRoom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="createSchedule.aspx.cs">
+      <DependentUpon>createSchedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="createSchedule.aspx.designer.cs">
+      <DependentUpon>createSchedule.aspx</DependentUpon>
     </Compile>
     <Compile Include="finishTasks.aspx.cs">
       <DependentUpon>finishTasks.aspx</DependentUpon>
@@ -2209,6 +2227,13 @@
     </Compile>
     <Compile Include="register.aspx.designer.cs">
       <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="roomAv.aspx.cs">
+      <DependentUpon>roomAv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="roomAv.aspx.designer.cs">
+      <DependentUpon>roomAv.aspx</DependentUpon>
     </Compile>
     <Compile Include="setCharging.aspx.cs">
       <DependentUpon>setCharging.aspx</DependentUpon>
@@ -2272,6 +2297,13 @@
     </Compile>
     <Compile Include="viewCharge.aspx.designer.cs">
       <DependentUpon>viewCharge.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewRoom.aspx.cs">
+      <DependentUpon>viewRoom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewRoom.aspx.designer.cs">
+      <DependentUpon>viewRoom.aspx</DependentUpon>
     </Compile>
     <Compile Include="viewStatus.aspx.cs">
       <DependentUpon>viewStatus.aspx</DependentUpon>

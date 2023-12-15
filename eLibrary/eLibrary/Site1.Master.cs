@@ -24,6 +24,9 @@ namespace eLibrary
                     LinkButton9.Visible = true; //profile
                     navbarDropdownDevice.Visible = true;//device drownmenu
                     LinkButton14.Visible = true; // view charge
+                    LinkButton15.Visible = true; //view room
+                    LinkButton16.Visible = true; // assign room
+                    navbarDropdownRoom.Visible = true;
                     if (Session["type"].ToString() == "Admin")
                     {
                         navbarDropdownTasks.Visible = true;
@@ -34,6 +37,9 @@ namespace eLibrary
                         LinkButton11.Visible = true; // Location of device
                         LinkButton12.Visible = true; // Status device
                         LinkButton13.Visible = true; // Location of 2 died devices
+                        LinkButton17.Visible = true;
+                        LinkButton18.Visible = true;
+                        LinkButton19.Visible = true;
 
                     }
                 }
@@ -113,6 +119,26 @@ namespace eLibrary
         protected void LinkButton14_Click(object sender, EventArgs e) //view charge
         {
             Response.Redirect("viewCharge.aspx");
+        }
+        protected void LinkButton15_Click(object sender, EventArgs e) //view charge
+        {
+            Response.Redirect("ViewRooms.aspx");
+        }
+        protected void LinkButton16_Click(object sender, EventArgs e) //view charge
+        {
+            Response.Redirect("assignRoom.aspx");
+        }
+        protected void LinkButton17_Click(object sender, EventArgs e) //view charge
+        {
+            Response.Redirect("createSchedule.aspx");
+        }
+        protected void LinkButton18_Click(object sender, EventArgs e) //view charge
+        {
+            Response.Redirect("roomAv.aspx");
+        }
+        protected void LinkButton19_Click(object sender, EventArgs e) //view charge
+        {
+            Response.Redirect("viewRoom.aspx");
         }
     }
 }
