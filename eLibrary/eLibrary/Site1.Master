@@ -85,7 +85,6 @@
                         Room
                     </asp:HyperLink>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownTasks"><ul>
-                         <li class="dropdown-item"><asp:LinkButton ID="LinkButton15" runat="server" OnClick="LinkButton15_Click" Visible="False">View Rooms</asp:LinkButton></li>
                          <li class="dropdown-item"><asp:LinkButton ID="LinkButton16" runat="server" OnClick="LinkButton16_Click" Visible="False">Assign Room</asp:LinkButton></li>
                         <li class="dropdown-item"><asp:LinkButton ID="LinkButton17" runat="server" OnClick="LinkButton17_Click" Visible="False">Create Schedule</asp:LinkButton></li>
                          <li class="dropdown-item"><asp:LinkButton ID="LinkButton18" runat="server" OnClick="LinkButton18_Click" Visible="False">Room Availability</asp:LinkButton></li>

@@ -17,12 +17,11 @@ namespace eLibrary
                 {
                     LinkButton1.Visible = false; // login
                     LinkButton2.Visible = false;// sign up
-                    navbarDropdownTasks.Visible = true;//tasks downmenu
+                    navbarDropdownTasks.Visible = false;//tasks downmenu
                     LinkButton3.Visible = true; //sign out
                     LinkButton9.Visible = true; //profile
                     navbarDropdownDevice.Visible = true;//device drownmenu
                     LinkButton14.Visible = true; // view charge
-                    LinkButton15.Visible = true; //view room
                     LinkButton16.Visible = true; // assign room
                     navbarDropdownRoom.Visible = true;
                     if (Session["type"].ToString() == "Admin")
