@@ -15,7 +15,10 @@ namespace eLibrary
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["adminid"] == null && Session["userid"] == null)
+            {
+                Response.Redirect("homepage.aspx");
+            }
         }
 
         protected void FinishTasks(object sender, EventArgs e)
@@ -26,12 +29,31 @@ namespace eLibrary
 
             SqlCommand FinishMyTask = new SqlCommand("FinishMyTask", conn);
             FinishMyTask.CommandType = CommandType.StoredProcedure;
-            FinishMyTask.Parameters.Add("@user_id", SqlDbType.Int).Value = int.Parse(userid.Text);
-            FinishMyTask.Parameters.Add("@title", SqlDbType.VarChar).Value = title.Text;
+            try
+            {
+                if(string.IsNullOrEmpty(title.Text))
+                {
+                    errorLabel.Text = "Please provide all parameters.";
+                    errorLabel.Visible = true;
+                    successLabel.Visible = false;
+                    return;
+                }
+                FinishMyTask.Parameters.Add("@user_id", SqlDbType.Int).Value = int.Parse(Session["adminid"].ToString());
+                FinishMyTask.Parameters.Add("@title", SqlDbType.VarChar).Value = title.Text;
+            }
+            catch (Exception ex)
+            {
+                errorLabel.Text = ex.Message;
+                errorLabel.Visible = true;
+                successLabel.Visible = false;
+            }
 
             conn.Open();
             FinishMyTask.ExecuteNonQuery();
             conn.Close();
+            successLabel.Text = "Task has been set to finished";
+            successLabel.Visible = true;
+            errorLabel.Visible = false;
         }
     }
 }

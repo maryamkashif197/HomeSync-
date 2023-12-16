@@ -21,52 +21,7 @@ namespace eLibrary
 
         }
 
-        /**        protected void select(object sender, EventArgs e)
-        {
-            try
-            {
-                using (SqlConnection con = new SqlConnection(strcon))
-                {
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM Admin", con);
-                    con.Open();
-
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    if (reader.HasRows)
-                    {
-                        Response.Write("<table border='1'>");
-                        Response.Write("<tr><th>Admin ID</th><th>No. of Guests Allowed</th><th>Salary</th></tr>");
-
-                        while (reader.Read())
-                        {
-                            int adminId = reader.GetInt32(reader.GetOrdinal("admin_id"));
-                            int guestsAllowed = reader.GetInt32(reader.GetOrdinal("no_of_guests_allowed"));
-                            decimal salary = reader.GetDecimal(reader.GetOrdinal("salary"));
-
-                            Response.Write("<tr>");
-                            Response.Write("<td>" + adminId + "</td>");
-                            Response.Write("<td>" + guestsAllowed + "</td>");
-                            Response.Write("<td>" + salary + "</td>");
-                            Response.Write("</tr>");
-                        }
-
-                        Response.Write("</table>");
-                    }
-                    else
-                    {
-                        Response.Write("<script>alert('No data found');</script>");
-                    }
-
-                    reader.Close();
-                    con.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("An error occurred: " + ex.Message);
-                Response.Write("<script>alert('An error occurred: " + ex.Message + "');</script>");
-            }
-        } **/
+        
 
         protected void UserRegister(object sender, EventArgs e)
         {
@@ -76,6 +31,20 @@ namespace eLibrary
             
             SqlCommand cmd = new SqlCommand("UserRegister", con);
 
+            if (string.IsNullOrEmpty(usertype.Text) ||
+                string.IsNullOrEmpty(email.Text) ||
+                string.IsNullOrEmpty(firstname.Text) ||
+                string.IsNullOrEmpty(lastname.Text) ||
+                string.IsNullOrEmpty(brithdate.Text) ||
+                string.IsNullOrEmpty(password.Text))
+            {
+                errorLabel.Text = "Please provide all information!";
+                errorLabel.Visible = true;
+                successLabel.Visible = false;
+                ScriptManager.RegisterStartupScript(this, GetType(), "showErrorDiv", "showDiv('errorDiv');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "hideErrorDiv", "hideDiv('errorDiv');", true);
+                return;
+            }
             cmd.Parameters.Add("@usertype", SqlDbType.VarChar).Value = usertype.Text;
             cmd.Parameters.Add("@email", SqlDbType.VarChar).Value = email.Text;
             cmd.Parameters.Add("@first_name", SqlDbType.VarChar).Value = firstname.Text;
@@ -95,15 +64,23 @@ namespace eLibrary
             if (userId.Value.ToString() != "")
             {
 
-                Response.Write("thanks for register, your id is: " + userId.Value.ToString());
-                    //SESSION['type'] = usertype.Text;
+                successLabel.Text = "thanks for register, your id is: " + userId.Value.ToString();
+                successLabel.Visible = true;
+                errorLabel.Visible=false;
+                ScriptManager.RegisterStartupScript(this, GetType(), "showSuccessDiv", "showDiv('successDiv');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "hideSuccessDiv", "hideDiv('successDiv');", true);
 
             }
             else
             {
-                Response.Write("something went wrong");
+                errorLabel.Text = "something went wrong, please try again later.";
+                errorLabel.Visible = true;
+                successLabel.Visible = false;
+                ScriptManager.RegisterStartupScript(this, GetType(), "showErrorDiv", "showDiv('errorDiv');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "hideErrorDiv", "hideDiv('errorDiv');", true);
+
             }
-            
+
 
         }
     }

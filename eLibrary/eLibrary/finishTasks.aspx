@@ -29,14 +29,6 @@
                         </div>
                         <div class="row">
                             <div class="col-md-8">
-                                <label>User ID</label>
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <asp:TextBox CssClass="form-control" ID="userid" runat="server" placeholder="Creator ID"></asp:TextBox>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-8">
                                 <label>title</label>
                                 <div class="form-group">
                                     <asp:TextBox CssClass="form-control" ID="title" runat="server" placeholder="task name"></asp:TextBox>
@@ -49,7 +41,12 @@
                                 <asp:Button ID="Button2" class="btn btn-lg btn-block btn-primary" runat="server" Text="FinishTasks" OnClick="FinishTasks" />
                             </div>
                         </div>
-                       
+                        <div class="row">
+                            <div class="col-md-5">
+                                <asp:Label ID="errorLabel" runat="server" ForeColor="Red" Visible="false"></asp:Label>
+                                <asp:Label ID="successLabel" runat="server" ForeColor="Green" Visible="false"></asp:Label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <a href="homepage.aspx"> Back to Home</a><br>

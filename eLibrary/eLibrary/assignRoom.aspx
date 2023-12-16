@@ -17,7 +17,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <img width="60" src="imgs/6194029.png" />
+                                   <i class="fa-solid fa-house-user fa-2xl"></i>
                                 </center>
                             </div>
                         </div>
@@ -39,6 +39,11 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <asp:Button ID="Button2" class="btn btn-lg btn-block btn-primary" runat="server" Text="Book Room" OnClick="AssignRoom" />
+                            </div>
+                        </div>
+                          <div class="row">
+                            <div class="col-md-5">
+                                <asp:Label ID="errorLabel" runat="server" ForeColor="Red" Visible="false"></asp:Label>
                             </div>
                         </div>
                          <div class="bg-light rounded p-2 mb-2">

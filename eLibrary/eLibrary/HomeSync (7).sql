@@ -1445,7 +1445,7 @@ PRINT @location
 -- 8
 EXEC AssignRoom 1900, 1500
 SELECT * FROM Users
-
+select * from Room
 
 -- 9
 EXEC CreateEvent 4, 'Event Event', 'Event 12345', 'under the bridge', '11/23/2023', 1
@@ -1610,6 +1610,7 @@ EXEC AdminAddTask
 select * from Tasks
 SELECT * FROM Assigned_to
 SELECT * FROM Room
+SELECT * FROM Users
 
 --18
 DECLARE @number_of_allowed_guests INT
@@ -1687,14 +1688,7 @@ EXEC Admins
 
 
 
-
-
-
-
-
-
-
-
+select * from Device
 
 
 

@@ -37,6 +37,14 @@ namespace eLibrary
             {
                 CreateSchedule.Parameters.Add("@creator_id", SqlDbType.Int).Value = int.Parse(Session["adminid"].ToString());
             }
+
+            if(string.IsNullOrEmpty(roomid.Text) || string.IsNullOrEmpty(start_time.Text) ||
+                string.IsNullOrEmpty(end_time.Text) || string.IsNullOrEmpty(action.Text))
+            {
+                errorLabel.Text = "Please provide all parameters.";
+                errorLabel.Visible = true;
+                return;
+            }
             CreateSchedule.Parameters.Add("@room_id", SqlDbType.Int).Value = int.Parse(roomid.Text);
             CreateSchedule.Parameters.Add("@start_time", SqlDbType.DateTime).Value = start_time.Text;
             CreateSchedule.Parameters.Add("@end_time", SqlDbType.DateTime).Value = end_time.Text;
@@ -48,9 +56,12 @@ namespace eLibrary
                 CreateSchedule.ExecuteNonQuery();
                 conn.Close();
                 LabelVal.Text = "Query executed Successfully !"; //ay 5edma
+                errorLabel.Visible = false;
             }catch (Exception ex)
             {
-                LabelVal.Text = "something went wrong with the execution of the query.";
+                errorLabel.Text = ex.Message;
+                errorLabel.Visible = true;
+                return;
             }
         }
     }

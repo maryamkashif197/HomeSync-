@@ -18,7 +18,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <img width="60" src="imgs/6194029.png" />
+                                    <i class="fa-solid fa-laptop fa-beat fa-2xl"></i>
                                 </center>
                             </div>
                         </div>
@@ -28,6 +28,11 @@
                                 <asp:Button ID="Button2" class="btn btn-lg btn-block btn-primary" runat="server" Text="Set Devices to Charging" OnClick="Charging" />
                             </div>
                         </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <asp:Label ID="successLabel" runat="server" ForeColor="Green" Visible="false"></asp:Label>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <a href="homepage.aspx"> Back to Home</a><br>

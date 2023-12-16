@@ -91,6 +91,12 @@
                                 <asp:Button ID="Button2" class="btn btn-lg btn-block btn-primary" runat="server" Text="Add task" OnClick="AdminAddTask" />
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <asp:Label ID="errorLabel" runat="server" ForeColor="Red" Visible="false"></asp:Label>
+                                <asp:Label ID="successLabel" runat="server" ForeColor="Green" Visible="false"></asp:Label>
+                            </div>
+                        </div>
                        
                     </div>
                 </div>

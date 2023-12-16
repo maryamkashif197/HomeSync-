@@ -14,7 +14,10 @@ namespace eLibrary
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["adminid"] == null && Session["userid"] == null)
+            {
+                Response.Redirect("homepage.aspx");
+            }
         }
 
         protected void ViewTask(object sender, EventArgs e)
@@ -25,8 +28,26 @@ namespace eLibrary
             SqlCommand ViewTask = new SqlCommand("ViewTask", conn);
             ViewTask.CommandType = CommandType.StoredProcedure;
 
-            ViewTask.Parameters.Add("@user_id", SqlDbType.Int).Value = int.Parse(userid.Text);
-            ViewTask.Parameters.Add("@creator", SqlDbType.Int).Value = int.Parse(creator.Text);
+            try
+            {
+                if(string.IsNullOrEmpty(userid.Text))
+                {
+                    errorLabel.Text = "Please provide all Parameters.";
+                    errorLabel.Visible = true;
+                    successLabel.Visible = false;
+                    return;
+                }
+                ViewTask.Parameters.Add("@user_id", SqlDbType.Int).Value = int.Parse(userid.Text);
+                ViewTask.Parameters.Add("@creator", SqlDbType.Int).Value = int.Parse(Session["adminid"].ToString());
+            }
+            catch(Exception ex)
+            {
+                errorLabel.Text = ex.Message;
+                errorLabel.Visible = true;
+                successLabel.Visible = false;
+
+                return;
+            }
 
             DataTable dt = new DataTable();
 
@@ -41,6 +62,9 @@ namespace eLibrary
 
             GridView1.DataSource = dt;
             GridView1.DataBind();
+            successLabel.Text = "Query executed successfully";
+            successLabel.Visible = true;
+            errorLabel.Visible = false;
         }
 
     }

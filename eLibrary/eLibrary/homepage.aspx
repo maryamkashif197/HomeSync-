@@ -20,7 +20,7 @@
             <div class="typeout"></div>
             <!-- <h2><span class="job">Back-End Developer</span></h2> -->
             <!-- <h3>I'm working behind the scenes</h3> -->
-            <a href="#Interests" class="main-btn">View our project</a>
+            <a href="#Interests" class="main-btn">View our team</a>
             <div class="social">
                 <a href="https://www.facebook.com/AhmedAlaa989/"><i class="fa-brands fa-facebook"></i></a>
                 <!-- <a href="https://www.instagram.com"><i class="fa-brands fa-instagram"></i></a> -->
@@ -106,10 +106,9 @@
                     <img class="card-img" src="images/maryam.jpeg">
                 </div>
                 <div class="Interests-info">
-                    <p class="Interests-text">Maryam Elkashif</p>
+                    <p class="Interests-text">Maryam kashif</p>
                     <strong class="Interests-title">
-                        <span>Design Lord</span>
-                        <a href="#" class="Interests-link">Github</a>
+                        <span>Design Queen</span>
                     </strong>
                 </div>
             </div>

@@ -51,20 +51,27 @@ namespace eLibrary
                 SqlParameter nofag = GuestRemove.Parameters.Add("@number_of_allowed_guests", SqlDbType.Int);
                 nofag.Direction = ParameterDirection.Output;
 
-                conn.Open();
-                GuestRemove.ExecuteNonQuery();
-                conn.Close();
-
-                int numberOfAllowedGuests = Convert.ToInt32(nofag.Value);
-
-                if (numberOfAllowedGuests >= 0)
+                try
                 {
-                    ShowStatusMessage("Guest removed successfully and his account has been deleted. number of guests allowed: "+$"{numberOfAllowedGuests}", "success");
+                    conn.Open();
+                    GuestRemove.ExecuteNonQuery();
+                    conn.Close();
 
+                    int numberOfAllowedGuests = Convert.ToInt32(nofag.Value);
+
+                    if (numberOfAllowedGuests >= 0)
+                    {
+                        ShowStatusMessage("Guest removed successfully and his account has been deleted. number of guests allowed: " + $"{numberOfAllowedGuests}", "success");
+
+                    }
+                    else
+                    {
+                        ShowStatusMessage("Failed to remove guest.", "error");
+                    }
                 }
-                else
+                catch(Exception ex)
                 {
-                    ShowStatusMessage("Failed to remove guest.", "error");
+                    ShowStatusMessage("the provided guest id is either not your guest or does not exist", "error");
                 }
 
             }else

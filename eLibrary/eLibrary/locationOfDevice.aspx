@@ -17,7 +17,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <img width="60" src="imgs/6194029.png" />
+                                    <i class="fa-solid fa-laptop fa-beat fa-2xl"></i>
                                 </center>
                             </div>
                         </div>

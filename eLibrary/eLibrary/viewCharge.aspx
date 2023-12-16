@@ -17,7 +17,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <img width="60" src="imgs/6194029.png" />
+                                    <i class="fa-solid fa-laptop fa-beat fa-2xl"></i>
                                 </center>
                             </div>
                         </div>
@@ -42,6 +42,12 @@
                                 <asp:Button ID="Button2" class="btn btn-lg btn-block btn-primary" runat="server" Text="View" OnClick="ViewMyDeviceCharge" />
                             </div>
                         </div>
+                     <div class="row">
+                        <div class="col-md-5">
+                            <asp:Label ID="errorLabel" runat="server" ForeColor="Red" Visible="false"></asp:Label>
+                            <asp:Label ID="successLabel" runat="server" ForeColor="Green" Visible="false"></asp:Label>
+                        </div>
+                    </div>
                          <div class="bg-light rounded p-2 mb-2">
                             <asp:Label ID="LabelCharge" runat="server" CssClass="text-dark" Text="Charge:"></asp:Label>
                             <asp:Label ID="LabelChargeValue" runat="server" CssClass="text-primary ml-2" Text=""></asp:Label>

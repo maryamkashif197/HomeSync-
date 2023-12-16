@@ -23,6 +23,37 @@
                            </div>
                        </div>
 
+
+                       <script type="text/javascript">
+                        // Function to show and hide the div within 5 seconds
+                        function showDiv(divId) {
+                            setTimeout(function () {
+                                document.getElementById(divId).style.display = 'block';
+                            }, 0);
+                           }
+                        function hideDiv(divId) {
+                            setTimeout(function () {
+                                document.getElementById(divId).style.display = 'none';
+                            }, 5000);
+                        }
+                       </script>
+                       <div class="row">
+                           <div class="col">
+                               <div class="p-3 mb-2 bg-success text-white" id="successDiv" style="display: none;">
+                                <center>
+                                 <asp:Label ID="successLabel" runat="server" Visible="false" ClientIDMode="Static"></asp:Label>    
+                                </center>
+                               </div>
+                               <div class="p-3 mb-2 bg-danger text-white" id="errorDiv" style="display: none;">
+                                 <center>
+                                    <asp:Label ID="errorLabel" runat="server" Visible="false" ClientIDMode="Static"></asp:Label>
+                                 </center>
+                               </div>
+
+                           </div>
+                       </div>
+
+
                       <div class="row">
                            <div class="col">
                              <label>User Type</label>
@@ -55,9 +86,10 @@
                              <div class="form-group d-grid gap-2">
                                  <asp:Button ID="Button1" class="btn btn-success" runat="server" Text="Register" OnClick="UserRegister" />
                              </div>
-
+                              
                            </div>
                        </div>
+
                    </div>
                  </div>
              <p>Already have an account? <a href="userLogin.aspx">login</a></p>

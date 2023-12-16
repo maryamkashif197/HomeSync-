@@ -34,17 +34,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-8">
-                                <label>Creator</label>
-                                <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="creator" runat="server" placeholder="Admin id"></asp:TextBox>
-                                </div>
-                            </div>
                         </div>
                         <br />
                         <div class="row">
                             <div class="col-md-5">
                                 <asp:Button ID="Button2" class="btn btn-lg btn-block btn-primary" runat="server" Text="View Task" OnClick="ViewTask" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <asp:Label ID="errorLabel" runat="server" ForeColor="Red" Visible="false"></asp:Label>
+                                <asp:Label ID="successLabel" runat="server" ForeColor="Green" Visible="false"></asp:Label>
                             </div>
                         </div>
                     </div>

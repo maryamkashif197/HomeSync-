@@ -18,7 +18,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <img width="60" src="imgs/6194029.png" />
+                                   <i class="fa-solid fa-house-user fa-2xl"></i>
                                 </center>
                             </div>
                         </div>
@@ -62,6 +62,8 @@
                                 <asp:Button ID="Button2" class="btn btn-lg btn-block btn-primary" runat="server" Text="Create Schedule" OnClick="CreateSchedule" />
                             </div>
                              <div class="bg-light rounded p-2 mb-2">
+                                <asp:Label ID="errorLabel" runat="server" ForeColor="Red" Visible="false"></asp:Label>
+                                 <br />
                                 <asp:Label ID="LabelRes" runat="server" CssClass="text-dark" Text="Result of Query:"></asp:Label>
                                 <asp:Label ID="LabelVal" runat="server" CssClass="text-primary ml-2" Text=""></asp:Label>
                             </div>

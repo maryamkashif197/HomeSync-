@@ -28,19 +28,50 @@ namespace eLibrary
             SqlCommand ViewMyDeviceCharge = new SqlCommand("ViewMyDeviceCharge", conn);
             ViewMyDeviceCharge.CommandType = CommandType.StoredProcedure;
 
-            ViewMyDeviceCharge.Parameters.Add("@device_id", SqlDbType.Int).Value = int.Parse(deviceid.Text);
-            ViewMyDeviceCharge.Parameters.Add("@charge", SqlDbType.Int).Direction = ParameterDirection.Output;
-            ViewMyDeviceCharge.Parameters.Add("@location", SqlDbType.Int).Direction = ParameterDirection.Output;
+            try
+            {
+                if (string.IsNullOrEmpty(deviceid.Text))
+                {
+                    errorLabel.Text = "Please provide all parameters.";
+                    errorLabel.Visible = true;
+                    successLabel.Visible = false;
+                    return;
+                }
+                ViewMyDeviceCharge.Parameters.Add("@device_id", SqlDbType.Int).Value = int.Parse(deviceid.Text);
+                ViewMyDeviceCharge.Parameters.Add("@charge", SqlDbType.Int).Direction = ParameterDirection.Output;
+                ViewMyDeviceCharge.Parameters.Add("@location", SqlDbType.Int).Direction = ParameterDirection.Output;
+            }
+            catch(Exception ex)
+            {
+                errorLabel.Text = ex.Message;
+                errorLabel.Visible = true;
+                successLabel.Visible = false;
+                return;
+            }
 
-            conn.Open();
-            ViewMyDeviceCharge.ExecuteNonQuery();
-            conn.Close();
+            try
+            {
+                conn.Open();
+                ViewMyDeviceCharge.ExecuteNonQuery();
+                conn.Close();
+                successLabel.Text = "Query executed successfully.";
+                successLabel.Visible = true;
+                errorLabel.Visible = false;
 
-            int charge = (int)ViewMyDeviceCharge.Parameters["@charge"].Value;
-            int location = (int)ViewMyDeviceCharge.Parameters["@location"].Value;
+                int charge = (int)ViewMyDeviceCharge.Parameters["@charge"].Value;
+                int location = (int)ViewMyDeviceCharge.Parameters["@location"].Value;
 
-            LabelChargeValue.Text = charge.ToString();
-            LabelLocationValue.Text =  location.ToString();
+                LabelChargeValue.Text = charge.ToString();
+                LabelLocationValue.Text = location.ToString();
+            }
+            catch(Exception ex) {
+                errorLabel.Text = "Device with id: "+ deviceid.Text+", does not exist";
+                errorLabel.Visible = true;
+                successLabel.Visible = false;
+                return;
+            }
+
+
         }
 
     }

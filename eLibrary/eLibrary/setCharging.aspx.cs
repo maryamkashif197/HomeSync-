@@ -32,7 +32,8 @@ namespace eLibrary
             conn.Open();
             Charging.ExecuteNonQuery();
             conn.Close();
-            Response.Write("All device now are Charging !");
+            successLabel.Text = "All devices now are charging.";
+            successLabel.Visible = true;
         }
     }
 }

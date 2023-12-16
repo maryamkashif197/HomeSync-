@@ -19,8 +19,6 @@ namespace eLibrary
                     LinkButton2.Visible = false;// sign up
                     navbarDropdownTasks.Visible = true;//tasks downmenu
                     LinkButton3.Visible = true; //sign out
-                    LinkButton7.Visible = true; // view Task
-                    LinkButton8.Visible = true; //finish task
                     LinkButton9.Visible = true; //profile
                     navbarDropdownDevice.Visible = true;//device drownmenu
                     LinkButton14.Visible = true; // view charge
@@ -33,6 +31,8 @@ namespace eLibrary
                         LinkButton4.Visible = true;//add task
                         LinkButton5.Visible = true;//add reminder
                         LinkButton6.Visible = true;//update deadline
+                        LinkButton7.Visible = true; // view Task
+                        LinkButton8.Visible = true; //finish task
                         LinkButton10.Visible=true; // Add device
                         LinkButton11.Visible = true; // Location of device
                         LinkButton12.Visible = true; // Status device

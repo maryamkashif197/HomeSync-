@@ -27,6 +27,13 @@ namespace eLibrary
 
             SqlCommand RoomAvailability = new SqlCommand("RoomAvailability", conn);
             RoomAvailability.CommandType = CommandType.StoredProcedure;
+            if(string.IsNullOrEmpty(location.Text) || string.IsNullOrEmpty(status.Text))
+            {
+                errorLabel.Text = "Please provide all parameters.";
+                errorLabel.Visible = true;
+                return;
+            }
+
             RoomAvailability.Parameters.Add("@location", SqlDbType.Int).Value = int.Parse(location.Text);
             RoomAvailability.Parameters.Add("@status", SqlDbType.VarChar).Value = status.Text;
 
@@ -35,10 +42,13 @@ namespace eLibrary
                 conn.Open();
                 RoomAvailability.ExecuteNonQuery();
                 conn.Close();
-                LabelVal.Text = "The room now is "+status.Text;
+                LabelVal.Text = "The room with id "+ location.Text +", is "+status.Text;
+                errorLabel.Visible = false;
             }catch (Exception ex)
             {
-                LabelVal.Text = "Something went wrong with the query. room id does not exists ?";
+                errorLabel.Text = ex.Message;
+                errorLabel.Visible = true;
+                return;
             }
         }
     }
